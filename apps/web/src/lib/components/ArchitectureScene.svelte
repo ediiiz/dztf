@@ -1,87 +1,94 @@
 <script lang="ts">
-	import { T, useTask } from "@threlte/core";
-	import { Float } from "@threlte/extras";
-	import { Spring } from "svelte/motion";
-	import * as THREE from "three";
+import { T, useTask } from "@threlte/core";
+import { Float } from "@threlte/extras";
+import { Spring } from "svelte/motion";
+import { MediaQuery } from "svelte/reactivity";
+import * as THREE from "three";
 
-	// --- Configuration ---
-	const NODE_COUNT = 30;
-	const CONNECTION_DIST = 10;
-	const NODE_COLOR = "#22d3ee"; // Tailwind cyan-400
-	const LIGHT_COLOR = "#06b6d4"; // Tailwind cyan-500
+// --- Configuration ---
+const NODE_COUNT = 30;
+const CONNECTION_DIST = 10;
+const NODE_COLOR = "#22d3ee"; // Tailwind cyan-400
+const LIGHT_COLOR = "#06b6d4"; // Tailwind cyan-500
 
-	// --- Mouse Interaction (Spring for smoothness) ---
-	const mouseX = new Spring(0, { stiffness: 0.05, damping: 0.3 });
-	const mouseY = new Spring(0, { stiffness: 0.05, damping: 0.3 });
+// --- Device Detection ---
+const isTouch = new MediaQuery("(pointer: coarse)");
 
-	const handleMouseMove = (e: MouseEvent) => {
-		// Map mouse to approx 3D world coordinates
-		mouseX.target = (e.clientX / window.innerWidth) * 2 - 1; // -1 to 1
-		mouseY.target = -(e.clientY / window.innerHeight) * 2 + 1; // -1 to 1
-	};
+// --- Mouse Interaction (Spring for smoothness) ---
+const mouseX = new Spring(0, { stiffness: 0.05, damping: 0.3 });
+const mouseY = new Spring(0, { stiffness: 0.05, damping: 0.3 });
 
-	// --- Neural Network Generation ---
-	// Use $state for reactivity in Svelte 5
-	let nodes = $state(
-		Array.from({ length: NODE_COUNT }).map(() => ({
-			position: new THREE.Vector3(
-				(Math.random() - 0.5) * 35,
-				(Math.random() - 0.5) * 20,
-				(Math.random() - 0.5) * 15,
-			),
-			scale: 0.1 + Math.random() * 0.15,
-			velocity: new THREE.Vector3(
-				(Math.random() - 0.5) * 0.01,
-				(Math.random() - 0.5) * 0.01,
-				(Math.random() - 0.5) * 0.01,
-			),
-		})),
-	);
+const handleMouseMove = (e: MouseEvent) => {
+	// Don't react on touch devices/mobile
+	if (isTouch.current) return;
 
-	// Dynamic Geometry for Lines
-	const lineGeometry = new THREE.BufferGeometry();
-	const lineMaterial = new THREE.LineBasicMaterial({
-		color: 0x22d3ee,
-		transparent: true,
-		opacity: 0.4, // Increased opacity for better visibility
-		blending: THREE.AdditiveBlending,
-	});
+	// Map mouse to approx 3D world coordinates
+	mouseX.target = (e.clientX / window.innerWidth) * 2 - 1; // -1 to 1
+	mouseY.target = -(e.clientY / window.innerHeight) * 2 + 1; // -1 to 1
+};
 
-	// Update lines and nodes every frame
-	useTask(() => {
-		const positions: number[] = [];
+// --- Neural Network Generation ---
+// Use $state for reactivity in Svelte 5
+let nodes = $state(
+	Array.from({ length: NODE_COUNT }).map(() => ({
+		position: new THREE.Vector3(
+			(Math.random() - 0.5) * 35,
+			(Math.random() - 0.5) * 20,
+			(Math.random() - 0.5) * 15,
+		),
+		scale: 0.1 + Math.random() * 0.15,
+		velocity: new THREE.Vector3(
+			(Math.random() - 0.5) * 0.01,
+			(Math.random() - 0.5) * 0.01,
+			(Math.random() - 0.5) * 0.01,
+		),
+	})),
+);
 
-		// Update node positions
-		for (const node of nodes) {
-			node.position.add(node.velocity);
+// Dynamic Geometry for Lines
+const lineGeometry = new THREE.BufferGeometry();
+const lineMaterial = new THREE.LineBasicMaterial({
+	color: 0x22d3ee,
+	transparent: true,
+	opacity: 0.4, // Increased opacity for better visibility
+	blending: THREE.AdditiveBlending,
+});
 
-			// Bounce back
-			if (Math.abs(node.position.x) > 17) node.velocity.x *= -1;
-			if (Math.abs(node.position.y) > 10) node.velocity.y *= -1;
-			if (Math.abs(node.position.z) > 7) node.velocity.z *= -1;
-		}
+// Update lines and nodes every frame
+useTask(() => {
+	const positions: number[] = [];
 
-		// Simple O(N^2) check for connections
-		for (let i = 0; i < nodes.length; i++) {
-			for (let j = i + 1; j < nodes.length; j++) {
-				const dist = nodes[i].position.distanceTo(nodes[j].position);
-				if (dist < CONNECTION_DIST) {
-					positions.push(
-						nodes[i].position.x,
-						nodes[i].position.y,
-						nodes[i].position.z,
-						nodes[j].position.x,
-						nodes[j].position.y,
-						nodes[j].position.z,
-					);
-				}
+	// Update node positions
+	for (const node of nodes) {
+		node.position.add(node.velocity);
+
+		// Bounce back
+		if (Math.abs(node.position.x) > 17) node.velocity.x *= -1;
+		if (Math.abs(node.position.y) > 10) node.velocity.y *= -1;
+		if (Math.abs(node.position.z) > 7) node.velocity.z *= -1;
+	}
+
+	// Simple O(N^2) check for connections
+	for (let i = 0; i < nodes.length; i++) {
+		for (let j = i + 1; j < nodes.length; j++) {
+			const dist = nodes[i].position.distanceTo(nodes[j].position);
+			if (dist < CONNECTION_DIST) {
+				positions.push(
+					nodes[i].position.x,
+					nodes[i].position.y,
+					nodes[i].position.z,
+					nodes[j].position.x,
+					nodes[j].position.y,
+					nodes[j].position.z,
+				);
 			}
 		}
-		lineGeometry.setAttribute(
-			"position",
-			new THREE.Float32BufferAttribute(positions, 3),
-		);
-	});
+	}
+	lineGeometry.setAttribute(
+		"position",
+		new THREE.Float32BufferAttribute(positions, 3),
+	);
+});
 </script>
 
 <svelte:window onmousemove={handleMouseMove} />
