@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+body {
+	@apply bg-neutral-950 text-neutral-100;
+}
+
+@layer utilities {
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* Hide scrollbar for everything if that's what is desired, or just use the utility */
+::-webkit-scrollbar {
+	display: none;
+}
+
+html {
+	scrollbar-width: none;
+	scroll-behavior: smooth;
+	scroll-padding-top: 80px; /* Adjust based on navbar height */
+}

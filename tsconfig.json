@@ -1,0 +1,3 @@
+{
+	"extends": "@solarsphaere/config/tsconfig.base.json"
+}
