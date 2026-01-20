@@ -30,19 +30,73 @@ function handlePrint() {
 <div class="min-h-screen text-[#e5e5e5] font-sans bg-[#0a0a0a] selection:bg-white selection:text-black">
   <ArchitectureBackground />
   
-  <!-- Print Styles -->
+  <!-- Print Styles & Animations -->
   <style>
+    @media screen {
+      @keyframes glow-pulse {
+        0%, 100% {
+          color: #e5e5e5;
+          text-shadow: 0 0 0px rgba(165, 243, 252, 0);
+        }
+        50% {
+          color: #a5f3fc;
+          text-shadow: 0 0 10px rgba(165, 243, 252, 0.5), 0 0 20px rgba(165, 243, 252, 0.3);
+        }
+      }
+      
+      .glow-letter {
+        animation: glow-pulse 4s ease-in-out infinite;
+        display: inline-block;
+      }
+    }
+
     @media print {
       @page { margin: 0; size: A4; }
-      :global(body) { background: white !important; color: black !important; -webkit-print-color-adjust: exact; }
+      :global(body) { 
+        background: white !important; 
+        color: black !important; 
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact; 
+      }
       .print-hidden { display: none !important; }
       .print-text-black { color: #000 !important; }
       .print-text-gray { color: #666 !important; }
       .print-border-black { border-color: #000 !important; }
-      .print-grid { display: grid !important; grid-template-columns: 35% 65% !important; height: 100vh !important; }
-      .print-col-left { background: #f4f4f5 !important; padding: 2cm !important; height: 100% !important; }
-      .print-col-right { padding: 2cm !important; background: white !important; }
-      .print-no-bg { background: none !important; }
+      
+      .print-grid { 
+        display: grid !important; 
+        grid-template-columns: 35% 65% !important; 
+        height: auto !important; 
+        min-height: 100vh !important;
+        background: linear-gradient(
+          to right, 
+          #f4f4f5 0%, 
+          #f4f4f5 35%, 
+          #000 35%, 
+          #000 calc(35% + 1px), 
+          white calc(35% + 1px)
+        ) !important;
+      }
+
+      .print-col-left { 
+        background: transparent !important; 
+        border: none !important;
+        padding: 1.5cm !important; 
+        height: auto !important; 
+      }
+
+      .print-col-right { 
+        background: transparent !important; 
+        padding: 1.5cm 1.5cm 1.5cm 2cm !important; 
+      }
+
+      h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+      
+      section .group,
+      section > .grid > div { 
+        break-inside: avoid; 
+        page-break-inside: avoid; 
+      }
     }
   </style>
 
@@ -56,7 +110,10 @@ function handlePrint() {
         <!-- Header / Name -->
         <div>
           <h1 class="text-5xl lg:text-6xl font-bold tracking-tighter leading-none mb-4 uppercase print-text-black">
-            Ediz<br/>Tefen<br/>lilio<br/>glu
+            E<span class="glow-letter" style="animation-delay: 0.5s">d</span>i<span class="glow-letter" style="animation-delay: 2.5s">z</span><br/>
+            <span class="glow-letter" style="animation-delay: 1.5s">T</span>e<span class="glow-letter" style="animation-delay: 3.5s">f</span>en<br/>
+            lilio<br/>
+            glu
           </h1>
           <div class="w-12 h-1 bg-white mb-6 print-text-black print-border-black bg-current"></div>
           <h2 class="text-xl tracking-wide uppercase text-neutral-400 print-text-gray">{t.role}</h2>
@@ -87,7 +144,7 @@ function handlePrint() {
       <!-- Controls (Lang + PDF) -->
       <div class="mt-12 lg:mt-0 flex flex-col gap-6 print-hidden">
         <div class="flex gap-4 text-sm font-mono">
-          {#each ['en', 'de', 'tr'] as l}
+          {#each ['en', 'de', 'tr'] as l (l)}
             <button
               onclick={() => setLang(l as Language)}
               class="uppercase tracking-widest hover:text-white transition-colors {lang === l ? 'text-white border-b border-white' : 'text-neutral-600'}"
@@ -108,7 +165,7 @@ function handlePrint() {
     </aside>
 
     <!-- --- RIGHT CONTENT (Scrollable) --- -->
-    <main class="lg:col-span-8 bg-[#0a0a0a]/50 backdrop-blur-sm print-col-right print-no-bg">
+    <main class="lg:col-span-8 bg-[#0a0a0a]/50 backdrop-blur-sm print-col-right">
       
       <!-- 01 // PROFILE -->
       <section class="border-b border-[#262626] p-8 lg:p-16 print-border-black">
@@ -127,7 +184,7 @@ function handlePrint() {
         </h3>
         
         <div class="space-y-16 print:space-y-8">
-          {#each t.jobs as job}
+          {#each t.jobs as job (job.title)}
             <div class="group">
               <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-4">
                 <h4 class="text-2xl font-medium text-white print-text-black group-hover:underline decoration-1 underline-offset-4">
@@ -147,7 +204,7 @@ function handlePrint() {
               </p>
 
               <ul class="space-y-2">
-                {#each job.bullets as bull}
+                {#each job.bullets as bull (bull)}
                   <li class="flex gap-4 text-neutral-400 text-sm print-text-gray">
                     <ArrowUpRight class="w-4 h-4 shrink-0 mt-0.5 opacity-50" />
                     <span>{bull}</span>
@@ -180,7 +237,7 @@ function handlePrint() {
         </h3>
         
         <div class="grid grid-cols-1 gap-8">
-          {#each t.edu as e}
+          {#each t.edu as e (e.degree)}
             <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center border-l-2 border-[#262626] pl-6 py-1 print-border-black">
               <div>
                 <h4 class="text-lg text-white font-medium print-text-black">{e.degree}</h4>
@@ -209,7 +266,7 @@ function handlePrint() {
       {title}
     </h4>
     <ul class="space-y-2">
-      {#each items as item}
+      {#each items as item (item)}
         <li class="text-sm text-neutral-400 font-mono print-text-gray hover:text-neutral-200 transition-colors cursor-default">
           {item}
         </li>
