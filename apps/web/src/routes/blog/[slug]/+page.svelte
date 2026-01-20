@@ -1,9 +1,36 @@
 <script lang="ts">
-  import { ArrowLeft } from "lucide-svelte";
-  import { resolve } from "$app/paths";
-  import ArchitectureBackground from "$lib/components/ArchitectureBackground.svelte";
+import { ArrowLeft } from "lucide-svelte";
+import { mount, unmount } from "svelte";
+import { resolve } from "$app/paths";
+import ArchitectureBackground from "$lib/components/ArchitectureBackground.svelte";
+import CopyButton from "$lib/components/CopyButton.svelte";
 
-  let { data } = $props();
+let { data } = $props();
+
+$effect(() => {
+	data.content;
+
+	const blocks = document.querySelectorAll(".code-block");
+	const buttons: ReturnType<typeof mount>[] = [];
+
+	blocks.forEach((block) => {
+		if (block.querySelector("button")) return;
+
+		const code = block.getAttribute("data-code") || "";
+
+		const btn = mount(CopyButton, {
+			target: block,
+			props: { code },
+		});
+		buttons.push(btn);
+	});
+
+	return () => {
+		buttons.forEach((btn) => {
+			unmount(btn);
+		});
+	};
+});
 </script>
 
 <svelte:head>

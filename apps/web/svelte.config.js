@@ -41,7 +41,7 @@ const config = {
 							theme: "tokyo-night",
 						}),
 					);
-					return `{@html ${JSON.stringify(html)} }`;
+					return `<div class="relative group code-block" data-code={${JSON.stringify(code)}}>{@html ${JSON.stringify(html)} }</div>`;
 				},
 			},
 		}),
