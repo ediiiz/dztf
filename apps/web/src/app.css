@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 body {
-	@apply bg-neutral-950 text-neutral-100;
+	@apply text-neutral-100;
 }
 
 @layer utilities {

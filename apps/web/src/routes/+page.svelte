@@ -27,7 +27,7 @@ function handlePrint() {
   <title>Ediz Tefenlilioglu | {t.role}</title>
 </svelte:head>
 
-<div class="min-h-screen text-[#e5e5e5] font-sans bg-[#0a0a0a] selection:bg-white selection:text-black">
+<div class="min-h-screen text-[#e5e5e5] font-sans selection:bg-white selection:text-black">
   <ArchitectureBackground />
   
   <!-- Print Styles & Animations -->
@@ -253,7 +253,7 @@ function handlePrint() {
       <footer class="p-8 lg:p-16 border-t border-[#262626] text-neutral-600 text-xs font-mono uppercase tracking-widest flex justify-between items-center print-hidden">
         <span>© {new Date().getFullYear()} dztf.dev</span>
         <div class="w-16 h-px bg-[#262626]"></div>
-        <span>Arch. V2</span>
+        <span>Svelte</span>
       </footer>
 
     </main>

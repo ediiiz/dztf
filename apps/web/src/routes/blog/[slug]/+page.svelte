@@ -37,7 +37,7 @@ $effect(() => {
   <title>{data.meta.title} | Ediz Tefenlilioglu</title>
 </svelte:head>
 
-<div class="min-h-screen text-[#e5e5e5] font-sans bg-[#0a0a0a]">
+<div class="min-h-screen text-[#e5e5e5] font-sans">
   <ArchitectureBackground />
 
   <div class="relative z-10 container mx-auto px-6 py-24 max-w-4xl">
