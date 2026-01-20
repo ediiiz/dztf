@@ -32,7 +32,8 @@ export const translations = {
 				company: "Dyckerhoff GmbH",
 				location: "Wiesbaden",
 				date: "2021 — 2024",
-				description: "Foundation in system administration and automation.",
+				description:
+					"Foundation in system administration and automation.",
 				bullets: [
 					"Developed complex PowerShell automation for administrative workflows.",
 					"Executed migration of legacy on-premise services to Azure Cloud.",
@@ -64,9 +65,28 @@ export const translations = {
 			},
 		],
 		tech: {
-			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA", "Hugging Face"],
-			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
-			dev: ["Python (FastAPI)", "TypeScript", "SQL", "Svelte", "LangChain"],
+			infra: [
+				"Proxmox VE",
+				"Docker",
+				"vLLM",
+				"Ollama",
+				"CUDA",
+				"Hugging Face",
+			],
+			devops: [
+				"Azure Entra ID",
+				"CI/CD",
+				"Git",
+				"Linux (Debian)",
+				"Bash",
+			],
+			dev: [
+				"Python (FastAPI)",
+				"TypeScript",
+				"SQL",
+				"Svelte",
+				"LangChain",
+			],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
 		},
 	},
@@ -90,7 +110,7 @@ export const translations = {
 				location: "Wiesbaden",
 				date: "2024 — Heute",
 				description:
-					"Federführung bei Design und Betrieb der KI-Infrastruktur.",
+					"Leitung bei Design und Betrieb der KI-Infrastruktur.",
 				bullets: [
 					"Aufbau eines Hochleistungs-GPU-Clusters (Proxmox) mit Passthrough.",
 					"Rollout lokaler LLMs (Llama 3, Mistral) mit vLLM (DSGVO-konform).",
@@ -103,7 +123,8 @@ export const translations = {
 				company: "Dyckerhoff GmbH",
 				location: "Wiesbaden",
 				date: "2021 — 2024",
-				description: "Fundament in Systemadministration und Automatisierung.",
+				description:
+					"Fundament in Systemadministration und Automatisierung.",
 				bullets: [
 					"Entwicklung von PowerShell-Skripten für Admin-Workflows.",
 					"Migration von Legacy-Diensten in die Azure Cloud.",
@@ -135,9 +156,28 @@ export const translations = {
 			},
 		],
 		tech: {
-			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA", "Hugging Face"],
-			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
-			dev: ["Python (FastAPI)", "TypeScript", "SQL", "Svelte", "LangChain"],
+			infra: [
+				"Proxmox VE",
+				"Docker",
+				"vLLM",
+				"Ollama",
+				"CUDA",
+				"Hugging Face",
+			],
+			devops: [
+				"Azure Entra ID",
+				"CI/CD",
+				"Git",
+				"Linux (Debian)",
+				"Bash",
+			],
+			dev: [
+				"Python (FastAPI)",
+				"TypeScript",
+				"SQL",
+				"Svelte",
+				"LangChain",
+			],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
 		},
 	},
@@ -160,7 +200,8 @@ export const translations = {
 				company: "Dyckerhoff GmbH",
 				location: "Wiesbaden",
 				date: "2024 — Mevcut",
-				description: "Kurumsal YZ altyapısının tasarımı ve işletilmesi.",
+				description:
+					"Kurumsal YZ altyapısının tasarımı ve işletilmesi.",
 				bullets: [
 					"Yüksek performanslı Proxmox GPU kümesi mimarisi.",
 					"vLLM kullanarak güvenli yerel LLM (Llama 3) dağıtımı.",
@@ -205,9 +246,28 @@ export const translations = {
 			},
 		],
 		tech: {
-			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA", "Hugging Face"],
-			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
-			dev: ["Python (FastAPI)", "TypeScript", "SQL", "Svelte", "LangChain"],
+			infra: [
+				"Proxmox VE",
+				"Docker",
+				"vLLM",
+				"Ollama",
+				"CUDA",
+				"Hugging Face",
+			],
+			devops: [
+				"Azure Entra ID",
+				"CI/CD",
+				"Git",
+				"Linux (Debian)",
+				"Bash",
+			],
+			dev: [
+				"Python (FastAPI)",
+				"TypeScript",
+				"SQL",
+				"Svelte",
+				"LangChain",
+			],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
 		},
 	},
