@@ -3,7 +3,7 @@ import { Canvas } from "@threlte/core";
 import ArchitectureScene from "./ArchitectureScene.svelte";
 </script>
 
-<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none print:hidden bg-[#0a0a0a]">
+<div class="fixed top-0 left-0 w-full h-dvh -z-10 pointer-events-none print:hidden bg-[#0a0a0a]">
   <!-- 3D Scene -->
   <div class="absolute inset-0 z-0">
     <Canvas>
