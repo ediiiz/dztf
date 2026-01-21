@@ -450,7 +450,7 @@ function handlePrint() {
       <span>github.com/ediiiz</span>
     </a>
     <a
-      href="https://dztf.dev/blog"
+      href="/blog"
       class="flex items-center gap-3 hover:text-white transition-colors group"
     >
       <ArrowUpRight
