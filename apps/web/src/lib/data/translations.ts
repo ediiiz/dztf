@@ -25,6 +25,7 @@ export const translations = {
 					"Engineered local LLM rollout (Llama 3, Mistral) via vLLM ensuring zero data leakage.",
 					"Developed RAG pipelines connecting LLMs with internal corporate data.",
 					"Orchestrated hybrid cloud integration (Azure + On-Premise).",
+					"Creating MLOps Pipelines using Google Vertex AI in GCP.",
 				],
 			},
 			{
@@ -32,8 +33,7 @@ export const translations = {
 				company: "Dyckerhoff GmbH",
 				location: "Wiesbaden",
 				date: "2021 — 2024",
-				description:
-					"Foundation in system administration and automation.",
+				description: "Foundation in system administration and automation.",
 				bullets: [
 					"Developed complex PowerShell automation for administrative workflows.",
 					"Executed migration of legacy on-premise services to Azure Cloud.",
@@ -56,37 +56,18 @@ export const translations = {
 			{
 				degree: "IT Specialist (System Integration)",
 				school: "Friedrich-Ebert-School",
-				year: "2024",
+				year: "2021 — 2024",
 			},
 			{
 				degree: "B.Sc. Business Informatics (Coursework)",
 				school: "RheinMain University",
-				year: "2018—2021",
+				year: "2018 — 2021",
 			},
 		],
 		tech: {
-			infra: [
-				"Proxmox VE",
-				"Docker",
-				"vLLM",
-				"Ollama",
-				"CUDA",
-				"Hugging Face",
-			],
-			devops: [
-				"Azure Entra ID",
-				"CI/CD",
-				"Git",
-				"Linux (Debian)",
-				"Bash",
-			],
-			dev: [
-				"Python (FastAPI)",
-				"TypeScript",
-				"SQL",
-				"Svelte",
-				"LangChain",
-			],
+			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA"],
+			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
+			dev: ["Python", "TypeScript", "SQL", "Svelte", "LangChain"],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
 		},
 	},
@@ -109,13 +90,13 @@ export const translations = {
 				company: "Dyckerhoff GmbH",
 				location: "Wiesbaden",
 				date: "2024 — Heute",
-				description:
-					"Leitung bei Design und Betrieb der KI-Infrastruktur.",
+				description: "Leitung bei Design und Betrieb der KI-Infrastruktur.",
 				bullets: [
 					"Aufbau eines Hochleistungs-GPU-Clusters (Proxmox) mit Passthrough.",
 					"Rollout lokaler LLMs (Llama 3, Mistral) mit vLLM (DSGVO-konform).",
 					"Entwicklung von RAG-Pipelines für interne Unternehmensdaten.",
 					"Integration von On-Premise-Diensten in die Azure-Cloud.",
+					"Erstellung von MLOps-Pipelines mit Google Vertex AI in GCP.",
 				],
 			},
 			{
@@ -123,8 +104,7 @@ export const translations = {
 				company: "Dyckerhoff GmbH",
 				location: "Wiesbaden",
 				date: "2021 — 2024",
-				description:
-					"Fundament in Systemadministration und Automatisierung.",
+				description: "Fundament in Systemadministration und Automatisierung.",
 				bullets: [
 					"Entwicklung von PowerShell-Skripten für Admin-Workflows.",
 					"Migration von Legacy-Diensten in die Azure Cloud.",
@@ -156,28 +136,9 @@ export const translations = {
 			},
 		],
 		tech: {
-			infra: [
-				"Proxmox VE",
-				"Docker",
-				"vLLM",
-				"Ollama",
-				"CUDA",
-				"Hugging Face",
-			],
-			devops: [
-				"Azure Entra ID",
-				"CI/CD",
-				"Git",
-				"Linux (Debian)",
-				"Bash",
-			],
-			dev: [
-				"Python (FastAPI)",
-				"TypeScript",
-				"SQL",
-				"Svelte",
-				"LangChain",
-			],
+			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA", ],
+			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
+			dev: ["Python", "TypeScript", "SQL", "Svelte", "LangChain"],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
 		},
 	},
@@ -200,13 +161,13 @@ export const translations = {
 				company: "Dyckerhoff GmbH",
 				location: "Wiesbaden",
 				date: "2024 — Mevcut",
-				description:
-					"Kurumsal YZ altyapısının tasarımı ve işletilmesi.",
+				description: "Kurumsal YZ altyapısının tasarımı ve işletilmesi.",
 				bullets: [
 					"Yüksek performanslı Proxmox GPU kümesi mimarisi.",
 					"vLLM kullanarak güvenli yerel LLM (Llama 3) dağıtımı.",
 					"Kurumsal veriler için RAG boru hatları geliştirilmesi.",
 					"Azure ve yerel hizmetlerin hibrit entegrasyonu.",
+					"GCP'de Google Vertex AI kullanarak MLOps Boru Hatları oluşturma.",
 				],
 			},
 			{
@@ -246,28 +207,9 @@ export const translations = {
 			},
 		],
 		tech: {
-			infra: [
-				"Proxmox VE",
-				"Docker",
-				"vLLM",
-				"Ollama",
-				"CUDA",
-				"Hugging Face",
-			],
-			devops: [
-				"Azure Entra ID",
-				"CI/CD",
-				"Git",
-				"Linux (Debian)",
-				"Bash",
-			],
-			dev: [
-				"Python (FastAPI)",
-				"TypeScript",
-				"SQL",
-				"Svelte",
-				"LangChain",
-			],
+			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA", ],
+			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
+			dev: ["Python", "TypeScript", "SQL", "Svelte", "LangChain"],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
 		},
 	},
