@@ -25,7 +25,7 @@ export const translations = {
 					"Engineered local LLM rollout (Llama 3, Mistral) via vLLM ensuring zero data leakage.",
 					"Developed RAG pipelines connecting LLMs with internal corporate data.",
 					"Orchestrated hybrid cloud integration (Azure + On-Premise).",
-					"Creating MLOps Pipelines using Google Vertex AI in GCP.",
+					"Engineered MLOps pipelines on Google Vertex AI for production training and prediction systems.",
 				],
 			},
 			{
@@ -96,7 +96,7 @@ export const translations = {
 					"Rollout lokaler LLMs (Llama 3, Mistral) mit vLLM (DSGVO-konform).",
 					"Entwicklung von RAG-Pipelines für interne Unternehmensdaten.",
 					"Integration von On-Premise-Diensten in die Azure-Cloud.",
-					"Erstellung von MLOps-Pipelines mit Google Vertex AI in GCP.",
+					"Entwicklung von MLOps-Pipelines auf Google Vertex AI für produktive Trainings- und Vorhersagesysteme.",
 				],
 			},
 			{
@@ -136,7 +136,7 @@ export const translations = {
 			},
 		],
 		tech: {
-			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA", ],
+			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA"],
 			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
 			dev: ["Python", "TypeScript", "SQL", "Svelte", "LangChain"],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
@@ -167,7 +167,7 @@ export const translations = {
 					"vLLM kullanarak güvenli yerel LLM (Llama 3) dağıtımı.",
 					"Kurumsal veriler için RAG boru hatları geliştirilmesi.",
 					"Azure ve yerel hizmetlerin hibrit entegrasyonu.",
-					"GCP'de Google Vertex AI kullanarak MLOps Boru Hatları oluşturma.",
+					"Google Vertex AI üzerinde üretim tahmin sistemleri ve eğitimi için MLOps boru hatları geliştirilmesi.",
 				],
 			},
 			{
@@ -207,7 +207,7 @@ export const translations = {
 			},
 		],
 		tech: {
-			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA", ],
+			infra: ["Proxmox VE", "Docker", "vLLM", "Ollama", "CUDA"],
 			devops: ["Azure Entra ID", "CI/CD", "Git", "Linux (Debian)", "Bash"],
 			dev: ["Python", "TypeScript", "SQL", "Svelte", "LangChain"],
 			core: ["RAG Systems", "Local Hosting", "IaC", "Data Sovereignty"],
